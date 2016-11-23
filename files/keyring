@@ -1,0 +1,2 @@
+[client.{{ ceph_backend_user }}]
+        key = {{ client_key }}
