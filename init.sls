@@ -6,7 +6,7 @@
   - mode: 755
   - makedirs: True
 
-/etc/ceph/{{ backend.cluster }}.conf:
+/etc/ceph/{{ ceph_cluster }}.conf:
   file.managed:
   - source: salt://ceph_backend/files/ceph.conf
   - template: jinja
@@ -19,8 +19,8 @@
   file.managed:
   - source: salt://ceph_backend/files/keyring
   - template: jinja
-  - user: cinder
-  - group: cinder
+  - user: {{ ceph_user }}
+  - group: {{ ceph_user }}
   - mode: 600
   - defaults:
       ceph_backend_user: {{ ceph_user }}
